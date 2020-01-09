@@ -36,6 +36,8 @@ function getBannerAd(){
                 console.log("Banner image url: " + banner_image);
                 console.log("Banner link url: " + banner_link);
                 console.log("Build banner ad.");
+                
+                //populate image, link and style inside banner container
                 $(".banner-ad-container").append("<a href='" + banner_link + "'><img class='bms-banner-image' src='" + banner_image + "'></a>");
                 $(".bms-banner-image").css({"width":"460px","height":"120px","background-image":"url("+banner_image+")","margin":"20px 0","background-size":"contain","background-repeat":"no-repeat"});
             } 
