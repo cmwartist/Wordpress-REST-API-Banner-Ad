@@ -32,14 +32,18 @@ function getBannerAd(){
             if(post['slug'] == banner_slug){
                 var banner_image = (post["acf"]["banner_image"]);
                 var banner_link = (post["acf"]["banner_link"]);
+                var banner_width = (post["acf"]["banner_width"]);
+                var banner_height = (post["acf"]["banner_height"]);
                 console.log(banner_slug + " found.");
                 console.log("Banner image url: " + banner_image);
                 console.log("Banner link url: " + banner_link);
+                console.log("Banner width: " + banner_width);
+                console.log("Banner height: " + banner_height);
                 console.log("Build banner ad.");
                 
                 //populate image, link and style inside banner container
                 $(".banner-ad-container").append("<a href='" + banner_link + "'><img class='bms-banner-image' src='" + banner_image + "'></a>");
-                $(".bms-banner-image").css({"width":"460px","height":"120px","background-image":"url("+banner_image+")","margin":"20px 0","background-size":"contain","background-repeat":"no-repeat"});
+                $(".bms-banner-image").css({"width":banner_width,"height":banner_height,"background-image":"url("+banner_image+")","margin":"20px 0","background-size":"contain","background-repeat":"no-repeat"});
             } 
         });
     });
