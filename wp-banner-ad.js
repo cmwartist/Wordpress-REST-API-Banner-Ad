@@ -8,7 +8,6 @@ Requires jQuery!
 */
 
 //set the banner to display by pasting the wordpress slug for that banner here. 
-var banner_slug = "bms-banner-ad"; 
 
 $(document).ready(function(){
     getBannerAd();
@@ -17,6 +16,7 @@ $(document).ready(function(){
 console.log('Banner ad script loaded.');
 
 function getBannerAd(){
+    var banner_slug = $(".banner-ad-container").attr('data-slug');
     console.log('Banner to load: ' + banner_slug);
     console.log('Attempting to get banner ad.');
     
@@ -25,7 +25,7 @@ function getBannerAd(){
         console.log("Connected to CBD Plus Wordpress API.");
         
         //Loop through each json post object
-        $.each(posts, function(index, post){
+        $.each(posts, function(index, post) {
             console.log("Searching for " + banner_slug + "...");
             
             //When specified slug is found, grab ACF values and build ad inside the ad container.
@@ -43,6 +43,7 @@ function getBannerAd(){
                 
                 //populate image, link and style inside banner container
                 $(".banner-ad-container").append("<a href='" + banner_link + "'><img class='bms-banner-image' src='" + banner_image + "'></a>");
+                $(".banner-ad-container").css({"text-align":"center"});
                 $(".bms-banner-image").css({"width":banner_width,"height":banner_height,"background-image":"url("+banner_image+")","margin":"20px 0","background-size":"contain","background-repeat":"no-repeat"});
             } 
         });
